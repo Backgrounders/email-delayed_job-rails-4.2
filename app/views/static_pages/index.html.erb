@@ -1,0 +1,18 @@
+<h1>Example Mailer</h1>
+
+<p>Leave us a message!</p>
+
+<%= form_tag contact_path do |f| %>
+
+<%= label_tag :name %> <br>
+<%= text_field_tag :name %> <br>
+
+<%= label_tag :email %> <br>
+<%= email_field_tag :email %> <br>
+
+<%= label_tag :body %> <br>
+<%= text_area_tag :body %> <br>
+
+<%= submit_tag 'Submit' %>
+
+<% end %>
