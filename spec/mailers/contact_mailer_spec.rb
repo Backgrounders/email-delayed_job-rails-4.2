@@ -9,10 +9,6 @@ describe ContactMailer do
     )
   end
 
-  it 'should pass a test' do
-    expect(true).to be(true)
-  end
-
   it 'should have a reply email' do
     expect(@email).to deliver_from 'example@email.com'
   end

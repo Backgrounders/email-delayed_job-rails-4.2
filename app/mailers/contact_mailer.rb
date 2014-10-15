@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default from: ENV['GMAIL_SENT_FROM']
+  default from: 'example@email.com'
 
   def contact(name, email, body)
     @name = name
