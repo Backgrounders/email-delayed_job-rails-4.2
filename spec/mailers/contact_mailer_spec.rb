@@ -1,27 +1,27 @@
 require 'rails_helper'
 
 describe ContactMailer do
-  include EmailSpec::Helpers
-  include EmailSpec::Matchers
-
-  before do
-    email = ContactMailer.contact(
-    'The Olsen Twins',
-    'olsentwins@email.com',
-    'Awesome site! We love that this uses a background job.'
+  before(:each) do
+    @email = ContactMailer.contact(
+    'John Travolta',
+    'travolta@email.com',
+    'Awesome site! I love that this uses a background job.'
     )
   end
 
+  it 'should pass a test' do
+    expect(true).to be(true)
+  end
+
   it 'should have a reply email' do
-    email.must_have_reply_to 'example@email.com'
+    expect(@email).to deliver_from 'example@email.com'
   end
 
   it 'should have a subject' do
-    email.must_have_subject 'Thanks for dropping a message!'
+    expect(@email).to have_subject 'New message from John Travolta'
   end
 
   it 'should have a body' do
-    email.must_have_body_text "Thanks for contacting us, The Olsen Twins! We'll
-    be sure to get back to you soon."
+    expect(@email).to have_body_text 'Awesome site! I love that this uses a background job.'
   end
 end
